@@ -4,4 +4,24 @@
         android:title="@string/action_about"
         android:orderInCategory="100"
         android:showAsAction="always"/>
+
+    <item android:id="@+id/search"
+        android:title="@string/search_title"
+        android:icon="@drawable/ic_search3"
+        android:showAsAction="collapseActionView|ifRoom"
+        android:actionViewClass="android.widget.SearchView" />
+
+    <item android:id="@+id/adding"
+        android:title="@string/adding_title"
+        android:icon="@drawable/ic_adding" />
+
+
+    <group android:id="@+id/sort_options" android:checkableBehavior="single">
+        <item android:id="@+id/action_sort_name_asc"
+            android:title="Sort by Name (a-z)"
+            android:checked="false" />
+        <item android:id="@+id/action_sort_name_dsc"
+            android:title="Sort by Name (z-a)"
+            android:checked="false" />
+    </group>
 </menu>

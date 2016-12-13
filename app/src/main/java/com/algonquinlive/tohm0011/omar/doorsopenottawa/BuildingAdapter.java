@@ -3,6 +3,7 @@ package com.algonquinlive.tohm0011.omar.doorsopenottawa;
  *  Purpose/Description of clas
  *  @tohm0011 Omar Tohme (tohm0011@algonquinlive.com)
  */
+import java.util.ArrayList;
 import java.util.List;
 
 import java.io.InputStream;
@@ -19,11 +20,14 @@ import android.graphics.BitmapFactory;
 import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.algonquinlive.tohm0011.omar.doorsopenottawa.model.Building;
 
-public class BuildingAdapter extends ArrayAdapter<Building> {
+
+public class BuildingAdapter extends ArrayAdapter<Building> implements Filterable {
 
     private Context context;
     private List<Building> buildingList;
@@ -116,4 +120,41 @@ private class ImageLoader extends AsyncTask<BuildingAndView, Void, BuildingAndVi
         imageCache.put(result.building.getBuildingId(), result.bitmap);
     }
 }
+    @Override
+    public Filter getFilter() {
+
+        Filter filter = new Filter() {
+
+            @SuppressWarnings("unchecked")
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+
+                buildingList = (List<Building>) results.values;
+                notifyDataSetChanged();
+            }
+
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+
+                FilterResults results = new FilterResults();
+                ArrayList<Building> FilteredArrayNames = new ArrayList<>();
+
+                constraint = constraint.toString().toLowerCase();
+                for (int i = 0; i < buildingList.size(); i++) {
+                    String dataNames = buildingList.get(i).getName();
+                    if (dataNames.toLowerCase().startsWith(constraint.toString()))  {
+                        FilteredArrayNames.add(buildingList.get(i));
+                    }
+                }
+
+                results.count = FilteredArrayNames.size();
+                results.values = FilteredArrayNames;
+                Log.e("VALUES", results.values.toString());
+
+                return results;
+            }
+        };
+
+        return filter;
+    }
 }

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text=""
+        android:hint="Building Name"
+        android:ems="10"
+        android:id="@+id/editText"
+        tools:text="Building Name" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text=""
+        android:hint="Building Address"
+        android:ems="10"
+        android:id="@+id/editText2"
+        tools:text="Address" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text=""
+        android:hint="Open Hours"
+        android:ems="10"
+        android:id="@+id/editText3"
+        tools:text="Open Hours" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text=""
+        android:ems="10"
+        android:hint="Description"
+        android:id="@+id/editText4"
+        tools:text="Description" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text=""
+        android:hint="Add a photo"
+        android:ems="10"
+        android:id="@+id/editText5"
+        tools:text="Add a photo" />
+
+    <Button
+        android:text="Submit a Building"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/addButton"
+        tools:text="Submit new Building"
+        android:elevation="0dp" />
+</LinearLayout>
